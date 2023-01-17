@@ -1,8 +1,8 @@
 //jshint esversion:6
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const ejs = require("ejs");
+const express = require("express")
+const bodyParser = require("body-parser")
+const ejs = require("ejs")
 const date = require(__dirname + '/date.js')
 const year = date.getYear()
 
@@ -12,13 +12,16 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs')
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static("public"))
+
+let blogs = []
 
 app.get('/', (req, res) => {
   res.render('home', {year: year, pageTitle: 'Daily Journal', content: homeStartingContent})
+  console.log(blogs)
 })
 
 app.get('/about', (req, res) => {
@@ -34,7 +37,11 @@ app.get('/compose', (req, res) => {
 })
 
 app.post('/compose', (req, res) => {
-  console.log(req.body.textPost)
+  let blog = {}
+  blog.title = req.body.textTitle
+  blog.content = req.body.textPost
+  blogs.push(blog)
+  res.redirect('/')
 })
 
 
