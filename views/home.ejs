@@ -6,10 +6,17 @@
 <% } %> -->
 
 <% contents.forEach(function(content) { %>
-    <a class="link-dark" href="/posts/ <%= content.title %>"><h2><%= content.title %></h2></a>
-    <p><%= content.content %></p>
+    <a class="link-dark link-title" href="/posts/ <%= content.title %>"><h2><%= content.title %></h2></a>
+    <p>
+    <% if (content.content.length > 100) { %>
+        <%= content.content.substring(0, 100)%> ... <a class="link-primary" href="/posts/ <%= content.title %>">Read More</a>
+    <% } else { %>
+        <%= content.content %>
+    <% } %>
+    </p>
+    <!-- <p><%= content.content %></p> -->
 <% }) %>
 
-<% console.log(contents) %>
+<!-- <% console.log(contents) %> -->
 
 <%- include('partials/footer') -%>
