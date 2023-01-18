@@ -6,7 +6,7 @@
 <% } %> -->
 
 <% contents.forEach(function(content) { %>
-    <h3><%= content.title %></h3>
+    <a class="link-dark" href="/posts/ <%= content.title %>"><h2><%= content.title %></h2></a>
     <p><%= content.content %></p>
 <% }) %>
 

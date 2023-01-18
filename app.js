@@ -3,6 +3,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const ejs = require("ejs")
+const _ = require('lodash')
 const date = require(__dirname + '/date.js')
 const year = date.getYear()
 
@@ -47,7 +48,21 @@ app.post('/compose', (req, res) => {
   res.redirect('/')
 })
 
-
+app.get('/posts/:postTitle', (req, res) => {
+  // console.log(req.params.postTitle)
+  const requestedTitle = _.lowerCase(req.params.postTitle)
+  for (i = 0; i < blogs.length; i++) {
+    const postTitle = _.lowerCase(blogs[i].title)
+    if (requestedTitle === postTitle) {
+      res.render('post', {
+        year: year,
+        pageTitle: blogs[i].title,
+        blog: blogs[i],
+      })
+      break
+    }
+  }
+})
 
 
 
