@@ -4,4 +4,11 @@
 
 <p><%= content %></p>
 
+<% for (var i = 0; i < contents.length; i++) { %>
+    <h2><%= contents[i].title %></h2>
+    <p><%= contents[i].content %></p>
+<% } %>
+
+<%= console.log(contents) %>
+
 <%- include('partials/footer') -%>

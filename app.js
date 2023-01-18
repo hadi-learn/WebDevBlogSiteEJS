@@ -20,8 +20,8 @@ app.use(express.static("public"))
 let blogs = []
 
 app.get('/', (req, res) => {
-  res.render('home', {year: year, pageTitle: 'Daily Journal', content: homeStartingContent})
-  console.log(blogs)
+  res.render('home', {year: year, pageTitle: 'Daily Journal', content: homeStartingContent, contents: blogs})
+  // console.log(blogs)
 })
 
 app.get('/about', (req, res) => {
