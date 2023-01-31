@@ -4,14 +4,17 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "env-cmd node --watch app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
     "ejs": "^2.7.4",
     "express": "^4.18.2",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "mongoose": "^6.9.0"
   }
 }

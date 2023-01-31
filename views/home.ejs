@@ -1,9 +1,10 @@
 <%- include('partials/header') -%>
 
-<!-- <% for (let i = 0; i < contents.length; i++) { %>
-    <h3><%= contents[i].title %></h3>
-    <p><%= contents[i].content %></p>
-<% } %> -->
+<h1>Home</h1>
+
+<p>
+    <%= homeStartingContent %>
+</p>
 
 <% contents.forEach(function(content) { %>
     <a class="link-dark link-title" href="/posts/ <%= content.title %>"><h2><%= content.title %></h2></a>
@@ -14,9 +15,6 @@
         <%= content.content %>
     <% } %>
     </p>
-    <!-- <p><%= content.content %></p> -->
 <% }) %>
-
-<!-- <% console.log(contents) %> -->
 
 <%- include('partials/footer') -%>
